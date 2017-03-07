@@ -1,0 +1,6 @@
+npm-debug.log*
+.eslintcache
+Thumbs.db
+*.DS_Store
+._*
+node_modules

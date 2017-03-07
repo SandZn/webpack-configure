@@ -1,4 +1,5 @@
-const { addObjectProperty } = require('./utils/objects');
+const context = require('./webpack/context');
 
-const webpackConfig = {};
-const addConfigProperty = addObjectProperty(webpackConfig);
+const buildWebpackConfig = config => Object.assign({}, context(config.appPath));
+
+console.log(buildWebpackConfig({ appPath: 'app' }));

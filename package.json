@@ -1,0 +1,29 @@
+{
+  "name": "webpack-config-builder",
+  "version": "0.0.1",
+  "description": "Builds webpack config files",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/hvolschenk/webpack-config-builder.git"
+  },
+  "keywords": [
+    "webpack"
+  ],
+  "author": "Hendrik Volschenk",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/hvolschenk/webpack-config-builder/issues"
+  },
+  "homepage": "https://github.com/hvolschenk/webpack-config-builder#readme",
+  "devDependencies": {
+    "eslint": "^3.17.1",
+    "eslint-config-airbnb": "^14.1.0",
+    "eslint-plugin-import": "^2.2.0",
+    "eslint-plugin-jsx-a11y": "^4.0.0",
+    "eslint-plugin-react": "^6.10.0"
+  }
+}

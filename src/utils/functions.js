@@ -1,6 +1,4 @@
 const compose = (...functions) =>
-  functions.reduce(
-    (accumulator, current) =>
-      (...arguments) => accumulator(current.apply(this, arguments)));
+  value => functions.reduce((accumulator, current) => current(accumulator), value) || value;
 
 module.exports = { compose };
