@@ -4,7 +4,9 @@
   "description": "Builds webpack config files",
   "main": "src/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "lint": "eslint --ext .js --ext .jsx app",
+    "test": "npm run lint && npm run test:scripts",
+    "test:scripts": "mocha \"**/*.test.js\""
   },
   "repository": {
     "type": "git",
@@ -20,10 +22,12 @@
   },
   "homepage": "https://github.com/hvolschenk/webpack-config-builder#readme",
   "devDependencies": {
+    "chai": "^3.5.0",
     "eslint": "^3.17.1",
     "eslint-config-airbnb": "^14.1.0",
     "eslint-plugin-import": "^2.2.0",
     "eslint-plugin-jsx-a11y": "^4.0.0",
-    "eslint-plugin-react": "^6.10.0"
+    "eslint-plugin-react": "^6.10.0",
+    "mocha": "^3.2.0"
   }
 }

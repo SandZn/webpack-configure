@@ -8,6 +8,8 @@ const resolve = require('./webpack/resolve');
 const buildWebpackConfigObject = configuration => Object.assign({},
   context(configuration.paths.app), entry(configuration.files.entry), output(configuration),
     resolve());
-const buildWebpackConfig = compose(applyDefaultConfig, buildWebpackConfigObject);
+const webpackConfigBuilder = compose(applyDefaultConfig, buildWebpackConfigObject);
 
-console.log(buildWebpackConfig());
+console.log(webpackConfigBuilder());
+
+module.exports = webpackConfigBuilder;
