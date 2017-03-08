@@ -1,7 +1,8 @@
 const { compose } = require('../utils/functions');
-const { join } = require('../utils/path');
+const { buildObjectWithKeyValue } = require('../utils/objects');
+const { join } = require('../utils/paths');
 
-const buildContextObject = context => ({ context });
+const buildContextObject = buildObjectWithKeyValue('context');
 const context = compose(join, buildContextObject);
 
 module.exports = context;
