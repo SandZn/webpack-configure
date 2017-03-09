@@ -6,7 +6,7 @@
   "scripts": {
     "lint": "eslint --ext .js src",
     "test": "npm run lint && npm run test:scripts",
-    "test:scripts": "mocha \"**/*.test.js\"",
+    "test:scripts": "mocha \"src/**/*.test.js\"",
     "semantic-release": "semantic-release pre && npm publish && semantic-release post"
   },
   "repository": {
