@@ -1,10 +1,22 @@
 const { expect } = require('chai');
+const { join } = require('./utils/paths');
 
-describe('A test', () => {
-  it('Tests something', () => {
-    expect('a').to.equal('a');
-  });
-  it('Tests something else', () => {
-    expect('a').to.equal('a');
+const webpackConfigBuilder = require('./index');
+
+describe('Index', () => {
+  describe('webpackConfigBuilder()', () => {
+    it('Creates a webpack configuration object with no arguments', () => {
+      const expected = {
+        context: join('app'),
+        entry: ['./index.jsx'],
+        output: {
+          filename: './bundle.js',
+          path: join('build'),
+          publicPath: '/',
+        },
+        resolve: 'resolve',
+      };
+      expect(webpackConfigBuilder()).to.deep.equal(expected);
+    });
   });
 });

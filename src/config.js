@@ -24,4 +24,4 @@ const DEFAULT_CONFIGURATION = {
 };
 const applyDefaultConfig = mergeObjects(DEFAULT_CONFIGURATION);
 
-module.exports = { applyDefaultConfig };
+module.exports = { applyDefaultConfig, DEFAULT_CONFIGURATION };
