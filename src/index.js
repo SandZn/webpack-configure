@@ -1,4 +1,4 @@
-const { applyDefaultConfig } = require('./constants/config');
+const { applyDefaultConfig } = require('./config');
 const { compose } = require('./utils/functions');
 const context = require('./webpack/context');
 const entry = require('./webpack/entry');

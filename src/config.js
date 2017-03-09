@@ -1,4 +1,4 @@
-const { mergeObjects } = require('../utils/objects');
+const { mergeObjects } = require('./utils/objects');
 
 const DEFAULT_CONFIGURATION = {
   application: {
