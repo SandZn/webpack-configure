@@ -1,5 +1,3 @@
-const { mergeObjects } = require('./utils/objects');
-
 const DEFAULT_CONFIGURATION = {
   application: {
     languages: {
@@ -22,6 +20,5 @@ const DEFAULT_CONFIGURATION = {
     build: 'build',
   },
 };
-const applyDefaultConfig = mergeObjects(DEFAULT_CONFIGURATION);
 
-module.exports = { applyDefaultConfig, DEFAULT_CONFIGURATION };
+module.exports = DEFAULT_CONFIGURATION;
