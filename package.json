@@ -1,5 +1,5 @@
 {
-  "name": "webpack-config-builder",
+  "name": "webpack-configure",
   "version": "0.0.0-semver",
   "description": "Builds webpack config files",
   "main": "src/index.js",
