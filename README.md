@@ -7,7 +7,7 @@ A webpack config file builder.
 Add the **webpack-config-builder** package to your application via npm
 
 ```
-$ npm i -D webpack-config-builder
+$ npm i -D webpack-configure
 ```
 
 ### Usage
