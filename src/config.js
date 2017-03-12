@@ -11,6 +11,12 @@ const DEFAULT_CONFIGURATION = {
   build: {
     vendor: false,
   },
+  devServer: {
+    hot: true,
+    isEnabled: true,
+    logLevel: 'error',
+    port: 2222,
+  },
   files: {
     bundle: 'bundle.js',
     entry: 'index.jsx',

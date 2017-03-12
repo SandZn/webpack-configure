@@ -1,6 +1,6 @@
 const { expect } = require('chai');
 
-const { compose } = require('./functions');
+const { compose, identity } = require('./functions');
 
 describe('Utils -> Functions', () => {
   describe('compose()', () => {
@@ -11,6 +11,12 @@ describe('Utils -> Functions', () => {
     });
     it('Acts as an identity method with no functions given', () => {
       expect(compose()('excellent')).to.equal('excellent');
+    });
+  });
+  describe('identity()', () => {
+    it('Returns the first parameter passed in', () => {
+      expect(identity('test')).to.equal('test');
+      expect(identity('test', 'me', 'baby', 'one', 'more', 'time')).to.equal('test');
     });
   });
 });
