@@ -1,10 +1,10 @@
-# webpack-config-builder
+# webpack-configure
 
 A webpack config file builder.
 
 ### Setup
 
-Add the **webpack-config-builder** package to your application via npm
+Add the **webpack-configure** package to your application via npm
 
 ```
 $ npm i -D webpack-configure
@@ -12,10 +12,10 @@ $ npm i -D webpack-configure
 
 ### Usage
 
-Use **webpack-config-builder** inside your _webpack.config.js_ file to generate the config for you:
+Use **webpack-configure** inside your _webpack.config.js_ file to generate the config for you:
 
 ```
-const webpackConfigBuilder = require('webpack-config-builder');
+const webpackConfigBuilder = require('webpack-configure');
 
 module.exports = webpackConfigBuilder();
 ```

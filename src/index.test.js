@@ -1,10 +1,10 @@
 const { expect } = require('chai');
 const { join } = require('./utils/paths');
 
-const webpackConfigBuilder = require('./index');
+const webpackConfigure = require('./index');
 
 describe('Index', () => {
-  describe('webpackConfigBuilder()', () => {
+  describe('webpackConfigure()', () => {
     it('Creates a webpack configuration object with no arguments', () => {
       const expected = {
         context: join('app'),
@@ -16,7 +16,7 @@ describe('Index', () => {
         },
         resolve: 'resolve',
       };
-      expect(webpackConfigBuilder()).to.deep.equal(expected);
+      expect(webpackConfigure()).to.deep.equal(expected);
     });
   });
 });

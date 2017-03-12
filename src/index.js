@@ -12,8 +12,8 @@ const applyDefaultConfig = mergeObjects(DEFAULT_CONFIGURATION);
 const buildWebpackConfigObject = configuration => Object.assign({},
   context(configuration.paths.app), devServer(configuration),
     entry(configuration.files.entry), output(configuration), resolve());
-const webpackConfigBuilder = compose(applyDefaultConfig, buildWebpackConfigObject);
+const webpackConfigure = compose(applyDefaultConfig, buildWebpackConfigObject);
 
-console.log(webpackConfigBuilder());
+console.log(webpackConfigure());
 
-module.exports = webpackConfigBuilder;
+module.exports = webpackConfigure;
