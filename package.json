@@ -11,7 +11,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/hvolschenk/webpack-config-builder.git"
+    "url": "https://github.com/hvolschenk/webpack-configure.git"
   },
   "keywords": [
     "webpack"
@@ -19,9 +19,9 @@
   "author": "Hendrik Volschenk",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/hvolschenk/webpack-config-builder/issues"
+    "url": "https://github.com/hvolschenk/webpack-configure/issues"
   },
-  "homepage": "https://github.com/hvolschenk/webpack-config-builder#readme",
+  "homepage": "https://github.com/hvolschenk/webpack-configure#readme",
   "devDependencies": {
     "chai": "^3.5.0",
     "eslint": "^3.17.1",
