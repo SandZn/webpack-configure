@@ -1,5 +1,5 @@
 # webpack-configure
-[![Build Status](https://travis-ci.org/hvolschenk/webpack-configure.svg?branch=master)](https://travis-ci.org/hvolschenk/webpack-configure)
+[![Build Status](https://travis-ci.org/hvolschenk/webpack-configure.svg?branch=master)](https://travis-ci.org/hvolschenk/webpack-configure) [![Coverage Status](https://coveralls.io/repos/github/hvolschenk/webpack-configure/badge.svg?branch=master)](https://coveralls.io/github/hvolschenk/webpack-configure?branch=master)
 
 A webpack config file builder.
 
