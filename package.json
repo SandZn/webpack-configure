@@ -6,7 +6,7 @@
   "scripts": {
     "lint": "eslint --ext .js src",
     "test": "npm run lint && npm run test:scripts",
-    "test:scripts": "mocha \"src/**/*.test.js\"",
+    "test:scripts": "istanbul cover _mocha \"src/**/*.test.js\"",
     "semantic-release": "semantic-release pre && npm publish && semantic-release post"
   },
   "repository": {
@@ -29,6 +29,7 @@
     "eslint-plugin-import": "^2.2.0",
     "eslint-plugin-jsx-a11y": "^4.0.0",
     "eslint-plugin-react": "^6.10.0",
+    "istanbul": "^0.4.5",
     "mocha": "^3.2.0",
     "semantic-release": "^6.3.2"
   }

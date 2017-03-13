@@ -3,4 +3,5 @@ npm-debug.log*
 Thumbs.db
 *.DS_Store
 ._*
-node_modules
+node_modules/
+coverage/

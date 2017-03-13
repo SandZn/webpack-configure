@@ -1,7 +1,4 @@
-const { compose } = require('../../utils/functions');
-const { buildObjectWithKeyValue } = require('../../utils/objects');
-
-const buildDevServerConfig = configuration => ({
+const buildDevServer = configuration => ({
   clientLogLevel: configuration.devServer.logLevel,
   compress: true,
   historyApiFallback: true,
@@ -11,10 +8,7 @@ const buildDevServerConfig = configuration => ({
   publicPath: '/',
 });
 
-const buildDevServerObject = buildObjectWithKeyValue('devServer');
-const buildDevServer = compose(buildDevServerConfig, buildDevServerObject);
-
 const devServer = configuration =>
-  (configuration.isEnabled ? buildDevServer(configuration) : {});
+  (configuration.devServer.isEnabled ? buildDevServer(configuration) : {});
 
 module.exports = devServer;
