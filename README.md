@@ -15,14 +15,14 @@ $ npm i -D webpack-configure
 Use **webpack-configure** inside your _webpack.config.js_ file to generate the config for you:
 
 ```
-const webpackConfigBuilder = require('webpack-configure');
+const webpackConfigure = require('webpack-configure');
 
-module.exports = webpackConfigBuilder();
+module.exports = webpackConfigure();
 ```
 
 ##### Options
 
-A list of options can be passed to `webpackConfigBuilder()`, they are all optional:
+A list of options can be passed to `webpackConfigure()`, they are all optional:
 
 * { application } _Object_
 
