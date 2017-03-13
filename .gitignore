@@ -5,3 +5,4 @@ Thumbs.db
 ._*
 node_modules/
 coverage/
+.coveralls.yml

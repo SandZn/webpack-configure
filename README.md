@@ -1,4 +1,5 @@
 # webpack-configure
+[![Build Status](https://travis-ci.org/hvolschenk/webpack-configure.svg?branch=master)](https://travis-ci.org/hvolschenk/webpack-configure)
 
 A webpack config file builder.
 
