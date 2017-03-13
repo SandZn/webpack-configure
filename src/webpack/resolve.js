@@ -1,3 +1,3 @@
-const resolve = () => ({ resolve: 'resolve' });
+const resolve = () => 'resolve';
 
 module.exports = resolve;

@@ -1,17 +1,12 @@
-const { compose } = require('../utils/functions');
-const { buildObjectWithKeyValue } = require('../utils/objects');
-const { join } = require('../utils/paths');
+const { addDotSlash, join } = require('../utils/paths');
 
-const buildFilename = fileBundle => ({ filename: `./${fileBundle}` });
-const buildPathObject = path => ({ path });
-const buildPath = compose(join, buildPathObject);
-const buildPublicPath = () => ({ publicPath: '/' });
-const buildLibrary = isVendorBuild => (isVendorBuild ? { library: 'vendor' } : {});
+const buildLibrary = isVendorBuild => (isVendorBuild ? 'vendor' : '');
 
-const buildOutput = ({ build: { vendor }, files: { bundle }, paths: { build } }) =>
-  Object.assign({}, buildFilename(bundle), buildPath(build), buildPublicPath(),
-    buildLibrary(vendor));
-const buildOutputObject = buildObjectWithKeyValue('output');
-const output = compose(buildOutput, buildOutputObject);
+const output = ({ build: { vendor }, files: { bundle }, paths: { build } }) => ({
+  filename: addDotSlash(bundle),
+  library: buildLibrary(vendor),
+  path: join(build),
+  publicPath: '/',
+});
 
 module.exports = output;

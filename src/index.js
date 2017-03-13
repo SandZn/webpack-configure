@@ -9,9 +9,14 @@ const resolve = require('./webpack/resolve');
 
 const applyDefaultConfig = mergeObjects(DEFAULT_CONFIGURATION);
 
-const buildWebpackConfigObject = configuration => Object.assign({},
-  context(configuration.paths.app), devServer(configuration),
-    entry(configuration.files.entry), output(configuration), resolve());
+const buildWebpackConfigObject = configuration => ({
+  context: context(configuration.paths.app),
+  devServer: devServer(configuration),
+  entry: entry(configuration.files.entry),
+  output: output(configuration),
+  resolve: resolve(),
+});
+
 const webpackConfigure = compose(applyDefaultConfig, buildWebpackConfigObject);
 
 console.log(webpackConfigure());

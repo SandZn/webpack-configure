@@ -8,9 +8,11 @@ describe('Index', () => {
     it('Creates a webpack configuration object with no arguments', () => {
       const expected = {
         context: join('app'),
+        devServer: {},
         entry: ['./index.jsx'],
         output: {
           filename: './bundle.js',
+          library: '',
           path: join('build'),
           publicPath: '/',
         },
