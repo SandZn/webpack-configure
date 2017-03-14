@@ -19,7 +19,11 @@ const DEFAULT_CONFIGURATION = {
   },
   files: {
     bundle: 'bundle.js',
-    entry: 'index.jsx',
+    entry: {
+      app: 'index.jsx',
+      vendor: 'vendor.js',
+    },
+    vendor: 'vendor.js',
   },
   paths: {
     app: 'app',
