@@ -61,6 +61,26 @@ A list of options can be passed to `webpackConfigure()`, they are all optional:
   Whether the build is to produce a vendor bundle. _If this option is selected only the vendor
   bundle will be created and not the application bundle._
 
+* **devServer** _Object_
+
+  Settings about the development server (This is created through webpack-dev-server).
+
+* **devServer.hot** _Boolean_ **true**
+
+  Whether hot module replacement must be enabled on the dev server.
+
+* **devServer.isEnabled** _Boolean_ **true**
+
+  Whether a dev server must be created.
+
+* **devServer.logLevel** _String_ **error**
+
+  The error log level for webpack builds ('error', 'info', 'none', 'warning').
+
+* **devServer.port** _Integer_ **2222**
+
+  The port to run the dev server on.
+
 * **files** _Object_
 
   Settings about the files to be used/created.
@@ -69,9 +89,24 @@ A list of options can be passed to `webpackConfigure()`, they are all optional:
 
   The name of the bundle file to be produced.
 
-* **files.entry** _String_ **index.jsx**
+* **files.entry** _Object_
 
-  The entry-point into the application. This file is relative to the path provided in _{ path.app }_ (Described below).
+  The entry files for each build type
+
+* **files.entry.app** _String_ **index.jsx**
+
+  The entry-point into the application. This file is relative to the path provided in _path.app_
+  (Described below).
+
+* **files.entry.vendor** _String_ **vendor.js**
+
+  The entry point for the vendor bundle build. This file is relative to the path provided in
+  _path.app_ (Described below).
+
+* **files.vendor**
+
+  The output name for the vendor bundle. This file will be saved relative to the path provided in
+  _path.build_ (Described below).
 
 * **paths** _Object_
 
