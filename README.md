@@ -103,6 +103,11 @@ A list of options can be passed to `webpackConfigure()`, they are all optional:
   The entry point for the vendor bundle build. This file is relative to the path provided in
   _path.app_ (Described below).
 
+* **files.htmlTemplate**
+
+  The html template to use for the application. This file is relative to the path provided in
+  _path.app_ (Described below).
+
 * **files.vendor**
 
   The output name for the vendor bundle. This file will be saved relative to the path provided in

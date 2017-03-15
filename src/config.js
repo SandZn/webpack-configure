@@ -23,6 +23,7 @@ const DEFAULT_CONFIGURATION = {
       app: 'index.jsx',
       vendor: 'vendor.js',
     },
+    htmlTemplate: 'index.html',
     vendor: 'vendor.js',
   },
   paths: {
