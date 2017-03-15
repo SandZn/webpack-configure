@@ -1,6 +1,8 @@
 const { expect } = require('chai');
-const { join } = require('./utils/paths');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const webpack = require('webpack');
 
+const { join } = require('./utils/paths');
 const webpackConfigure = require('./index');
 
 describe('Index', () => {
@@ -24,7 +26,11 @@ describe('Index', () => {
           path: join('build'),
           publicPath: '/',
         },
-        plugins: [],
+        plugins: [
+          new webpack.HotModuleReplacementPlugin(),
+          new HtmlWebpackPlugin({ template: 'index.html' }),
+          new webpack.NamedModulesPlugin(),
+        ],
         resolve: { extensions: ['.js', '.jsx'], modules: ['app', 'node_modules'] },
       };
       expect(webpackConfigure()).to.deep.equal(expected);
