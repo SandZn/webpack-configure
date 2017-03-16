@@ -27,7 +27,7 @@ A list of options can be passed to `webpackConfigure()`, they are all optional:
 
 * **application** _Object_
 
-  Settings about the languages and frameworks used in this project.
+  Settings about the languages and frameworks used in this project
 
 * **application.languages** _Object_
 
