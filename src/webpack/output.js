@@ -1,12 +1,14 @@
+const { CONSTANTS, getAppOutput, getBuildPath, isVendorBuild } = require('../config/config');
+const { compose } = require('../utils/functions');
+const { objectFromFunctions } = require('../utils/objects');
 const { addDotSlash, join } = require('../utils/paths');
 
-const buildLibrary = isVendorBuild => (isVendorBuild ? 'vendor' : '');
+const filename = configuration => compose(getAppOutput, addDotSlash)(configuration);
+const library = configuration => (isVendorBuild(configuration) ? CONSTANTS.VENDOR_LIBRARY : '');
+const path = configuration => compose(getBuildPath, join)(configuration);
+const publicPath = () => '/';
 
-const output = ({ build: { vendor }, files: { bundle }, paths: { build } }) => ({
-  filename: addDotSlash(bundle),
-  library: buildLibrary(vendor),
-  path: join(build),
-  publicPath: '/',
-});
+const output = configuration =>
+  objectFromFunctions(filename, library, path, publicPath)(configuration);
 
 module.exports = output;

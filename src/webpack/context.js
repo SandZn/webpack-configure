@@ -1,3 +1,7 @@
+const { getAppPath } = require('../config/config');
+const { compose } = require('../utils/functions');
 const { join } = require('../utils/paths');
 
-module.exports = join;
+const context = configuration => compose(getAppPath, join)(configuration);
+
+module.exports = context;

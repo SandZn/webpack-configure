@@ -1,6 +1,6 @@
 const { expect } = require('chai');
 
-const { buildObjectWithKeyValue, mergeObjects } = require('./objects');
+const { buildObjectWithKeyValue, mergeObjects, objectFromFunctions } = require('./objects');
 
 describe('Utils -> Objects', () => {
   describe('buildObjectWithKeyValue()', () => {
@@ -24,6 +24,19 @@ describe('Utils -> Objects', () => {
     it('Overwrites the same key with the new value', () => {
       const mergeWithTestObject = mergeObjects({ test: 'test' });
       expect(mergeWithTestObject({ test: 'TEST' })).to.deep.equal({ test: 'TEST' });
+    });
+  });
+
+  describe('objectFromFunctions()', () => {
+    it('Builds an object with function names as keys and values as executions', () => {
+      const X = 'X';
+      const Y = 'Y';
+      const Z = 'Z';
+      const configuration = { X, Y, Z };
+      const x = config => config.X;
+      const y = config => config.Y;
+      const z = config => config.Z;
+      expect(objectFromFunctions(x, y, z)(configuration)).to.deep.equal({ x: X, y: Y, z: Z });
     });
   });
 });

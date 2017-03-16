@@ -1,10 +1,12 @@
+const { getAppEntry, getVendorEntry, isVendorBuild } = require('../config/config');
+
 const { addToEmptyArray } = require('../utils/arrays');
 const { compose } = require('../utils/functions');
 const { addDotSlash } = require('../utils/paths');
 
-const getFileName = configuration => (configuration.build.vendor ?
-  configuration.files.entry.vendor : configuration.files.entry.app);
+const getFileName = configuration => (isVendorBuild(configuration) ?
+  getVendorEntry(configuration) : getAppEntry(configuration));
 
-const entry = compose(getFileName, addDotSlash, addToEmptyArray);
+const entry = configuration => compose(getFileName, addDotSlash, addToEmptyArray)(configuration);
 
 module.exports = entry;

@@ -9,11 +9,9 @@ describe('Webpack -> Entry', () => {
     build: {
       vendor: false,
     },
-    files: {
-      entry: {
-        app: APP,
-        vendor: VENDOR,
-      },
+    entry: {
+      app: APP,
+      vendor: VENDOR,
     },
   };
   it('Makes the input relative and adds it to an array (app)', () => {

@@ -1,15 +1,21 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const webpack = require('webpack');
 
-const pluginHMR = hot => (hot ? [new webpack.HotModuleReplacementPlugin()] : []);
-const pluginHtml = template => (template ? [new HtmlWebpackPlugin({ template })] : []);
-const pluginNamed = isVendorBuild =>
-  (isVendorBuild ? [] : [new webpack.NamedModulesPlugin()]);
+const {
+  getHtmlTemplate,
+  isDevServerHot,
+  isHtmlEnabled,
+  isNamedModulesEnabled,
+} = require('../config/config');
+const { arrayFromFunctions } = require('../utils/arrays');
 
-const plugins = configuration => [
-  ...pluginHMR(configuration.devServer.hot),
-  ...pluginHtml(configuration.files.htmlTemplate),
-  ...pluginNamed(configuration.build.vendor),
-];
+const hmr = configuration => (isDevServerHot(configuration) ?
+  [new webpack.HotModuleReplacementPlugin()] : []);
+const html = configuration => (isHtmlEnabled(configuration) ?
+  [new HtmlWebpackPlugin({ template: getHtmlTemplate(configuration) })] : []);
+const named = configuration => (isNamedModulesEnabled(configuration) ?
+  [new webpack.NamedModulesPlugin()] : []);
+
+const plugins = configuration => arrayFromFunctions(hmr, html, named)(configuration);
 
 module.exports = plugins;

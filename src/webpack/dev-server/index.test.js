@@ -8,7 +8,7 @@ describe('Webpack -> Dev server', () => {
   });
   it('Adds the correct configuration to the resulting object', () => {
     const LOGLEVEL = 'LOGLEVEL';
-    const HOT = 'HOT';
+    const HOT = true;
     const PORT = 'PORT';
     const configuration = {
       devServer: {

@@ -10,7 +10,7 @@ describe('Webpack -> Output', () => {
     const VENDOR = false;
     const configuration = {
       build: { vendor: VENDOR },
-      files: { bundle: BUNDLE },
+      output: { app: BUNDLE },
       paths: { build: BUILD },
     };
     const expected = {
@@ -27,7 +27,7 @@ describe('Webpack -> Output', () => {
     const VENDOR = true;
     const configuration = {
       build: { vendor: VENDOR },
-      files: { bundle: BUNDLE },
+      output: { app: BUNDLE },
       paths: { build: BUILD },
     };
     const expected = {

@@ -1,14 +1,23 @@
-const buildDevServer = configuration => ({
-  clientLogLevel: configuration.devServer.logLevel,
-  compress: true,
-  historyApiFallback: true,
-  hot: configuration.devServer.hot,
-  noInfo: true,
-  port: configuration.devServer.port,
-  publicPath: '/',
-});
+const {
+  getDevServerLogLevel,
+  getDevServerPort,
+  isDevServerEnabled,
+  isDevServerHot,
+} = require('../../config/config');
+const { objectFromFunctions } = require('../../utils/objects');
+
+const clientLogLevel = configuration => getDevServerLogLevel(configuration);
+const compress = () => true;
+const historyApiFallback = () => true;
+const hot = configuration => isDevServerHot(configuration);
+const noInfo = () => true;
+const port = configuration => getDevServerPort(configuration);
+const publicPath = () => '/';
+
+const buildDevServer = objectFromFunctions(clientLogLevel, compress, historyApiFallback, hot,
+  noInfo, port, publicPath);
 
 const devServer = configuration =>
-  (configuration.devServer.isEnabled ? buildDevServer(configuration) : {});
+  (isDevServerEnabled(configuration) ? buildDevServer(configuration) : {});
 
 module.exports = devServer;
