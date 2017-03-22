@@ -1,5 +1,6 @@
 const { expect } = require('chai');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const path = require('path');
 const webpack = require('webpack');
 
 const { join } = require('./utils/paths');
@@ -20,6 +21,37 @@ describe('Index', () => {
           publicPath: '/',
         },
         entry: ['./index.jsx'],
+        module: {
+          rules: [
+            {
+              exclude: /node_modules/,
+              test: /.css/,
+              use: [{ loader: 'style-loader' }, { loader: 'css-loader' }],
+            },
+            {
+              exclude: /node_modules/,
+              test: /.js/,
+              use: [{ loader: 'react-hot-loader/webpack' }, { loader: 'babel-loader' }],
+            },
+            {
+              exclude: /node_modules/,
+              test: /.jsx/,
+              use: [{ loader: 'react-hot-loader/webpack' }, { loader: 'babel-loader' }],
+            },
+            {
+              exclude: /node_modules/,
+              test: /.scss/,
+              use: [
+                { loader: 'style-loader' },
+                { loader: 'css-loader' },
+                {
+                  loader: 'sass-loader',
+                  options: { data: `@import "${path.join(__dirname, 'app', 'variables.scss')}"` },
+                },
+              ],
+            },
+          ],
+        },
         output: {
           filename: './bundle.js',
           library: '',
