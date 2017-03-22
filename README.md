@@ -5,7 +5,7 @@ A webpack config file builder.
 
 ### Setup
 
-Add the **webpack-configure** package to your application via npm
+Add the **webpack-configure** package to your application via npm.
 
 ```
 $ npm i -D webpack-configure
