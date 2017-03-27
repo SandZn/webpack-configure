@@ -22,6 +22,7 @@ const CONSTANTS = {
   PATH_NPM: 'node_modules',
   PATH_PUBLIC: '/',
   PATH_REACT_FLEXBOX_GRID: 'node_modules/flexboxgrid',
+  PATH_REACT_TOOLBOX: 'node_modules/react-toolbox',
   VENDOR_LIBRARY: 'vendor',
 };
 

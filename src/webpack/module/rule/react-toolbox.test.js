@@ -2,28 +2,28 @@ const { expect } = require('chai');
 const path = require('path');
 
 const { CONSTANTS } = require('../../../config/config');
-const reactFlexboxGrid = require('./react-flexbox-grid');
+const reactToolbox = require('./react-toolbox');
 
-describe('Webpack -> Module -> Rule -> ReactFlexboxGrid', () => {
+describe('Webpack -> Module -> Rule -> ReactToolbox', () => {
   const APP = 'APP';
   const ROOT = 'ROOT';
   const SASS = 'SASS';
   const offConfiguration = {
     entry: { sass: SASS },
     languages: { css: false, javascript: false, jsx: false, sass: false },
-    packages: { npm: false, reactFlexboxGrid: false },
+    packages: { npm: false, reactToolbox: false },
     paths: { app: APP, root: ROOT },
   };
   it('Builds an empty loader with all settings off', () => {
-    expect(reactFlexboxGrid(offConfiguration)).to.deep.equal([]);
+    expect(reactToolbox(offConfiguration)).to.deep.equal([]);
   });
-  it('builds the react-flexbox-grid loader when react-flexbox-grid is turned on', () => {
+  it('builds the react-toolbox loader when react-toolbox is turned on', () => {
     const sassConfiguration = Object.assign({}, offConfiguration,
-      { packages: Object.assign({}, offConfiguration.packages, { reactFlexboxGrid: true }) },
+      { packages: Object.assign({}, offConfiguration.packages, { reactToolbox: true }) },
         { paths: Object.assign({}, offConfiguration.paths, { root: `../../${ROOT}` }) });
     const expected = [{
       exclude: '',
-      include: new RegExp(CONSTANTS.PATH_REACT_FLEXBOX_GRID),
+      include: new RegExp(CONSTANTS.PATH_REACT_TOOLBOX),
       test: new RegExp(CONSTANTS.EXTENSION_SASS),
       use: [
         { loader: CONSTANTS.LOADER_STYLE },
@@ -34,18 +34,18 @@ describe('Webpack -> Module -> Rule -> ReactFlexboxGrid', () => {
         },
       ],
     }];
-    expect(reactFlexboxGrid(sassConfiguration)).to.deep.equal(expected);
+    expect(reactToolbox(sassConfiguration)).to.deep.equal(expected);
   });
-  it('Builds the react-flexbox-grid loader and excludes all necessary paths', () => {
+  it('Builds the react-toolbox loader and excludes all necessary paths', () => {
     const sassConfiguration = Object.assign({}, offConfiguration,
       {
         packages: Object.assign({}, offConfiguration.packages,
-          { npm: true, reactFlexboxGrid: true }),
+          { npm: true, reactToolbox: true }),
       },
         { paths: Object.assign({}, offConfiguration.paths, { root: `../${ROOT}` }) });
     const expected = [{
       exclude: new RegExp(CONSTANTS.PATH_NPM),
-      include: new RegExp(CONSTANTS.PATH_REACT_FLEXBOX_GRID),
+      include: new RegExp(CONSTANTS.PATH_REACT_TOOLBOX),
       test: new RegExp(CONSTANTS.EXTENSION_SASS),
       use: [
         { loader: CONSTANTS.LOADER_STYLE },
@@ -56,6 +56,6 @@ describe('Webpack -> Module -> Rule -> ReactFlexboxGrid', () => {
         },
       ],
     }];
-    expect(reactFlexboxGrid(sassConfiguration)).to.deep.equal(expected);
+    expect(reactToolbox(sassConfiguration)).to.deep.equal(expected);
   });
 });
