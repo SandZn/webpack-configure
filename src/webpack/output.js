@@ -4,7 +4,7 @@ const { addDotSlash, join } = require('../utils/paths');
 
 const filename = compose(getAppOutput, addDotSlash);
 const library = configuration => (isVendorBuild(configuration) ? CONSTANTS.VENDOR_LIBRARY : '');
-const path = compose(getBuildPath, join);
+const path = configuration => compose(getBuildPath, join(configuration))(configuration);
 
 const output = configuration => ({
   filename: filename(configuration),

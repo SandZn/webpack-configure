@@ -6,7 +6,7 @@ const CONFIG = {
   languages: { css: true, javascript: true, jsx: true, sass: true },
   output: { app: 'bundle.js', vendor: 'vendor.js' },
   packages: { npm: true },
-  paths: { app: 'app', build: 'build' },
+  paths: { app: 'app', build: 'build', root: '../../../..' },
 };
 
 const CONSTANTS = {
@@ -31,6 +31,7 @@ const getBuildPath = configuration => configuration.paths.build;
 const getDevServerLogLevel = configuration => configuration.devServer.logLevel;
 const getDevServerPort = configuration => configuration.devServer.port;
 const getHtmlTemplate = configuration => configuration.html.template;
+const getRootPath = configuration => configuration.paths.root;
 const getSassEntry = configuration => configuration.entry.sass;
 const getVendorEntry = configuration => configuration.entry.vendor;
 // const getVendorOutput = configuration => configuration.entry.output;
@@ -56,6 +57,7 @@ module.exports = {
   getDevServerLogLevel,
   getDevServerPort,
   getHtmlTemplate,
+  getRootPath,
   getSassEntry,
   getVendorEntry,
   // getVendorOutput,

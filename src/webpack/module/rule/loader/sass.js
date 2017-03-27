@@ -7,7 +7,7 @@ const {
 const { join } = require('../../../../utils/paths');
 
 const data = configuration =>
-  `@import "${join(getAppPath(configuration), getSassEntry(configuration))}"`;
+  `@import "${join(configuration)(getAppPath(configuration), getSassEntry(configuration))}"`;
 const options = configuration =>
   (isSassEntryEnabled(configuration) ? { data: data(configuration) } : {});
 

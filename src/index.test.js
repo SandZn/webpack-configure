@@ -3,14 +3,13 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const path = require('path');
 const webpack = require('webpack');
 
-const { join } = require('./utils/paths');
 const webpackConfigure = require('./index');
 
 describe('Index', () => {
   describe('webpackConfigure()', () => {
     it('Creates a webpack configuration object with no arguments', () => {
       const expected = {
-        context: join('app'),
+        context: path.join(__dirname, '../../..', 'app'),
         devServer: {
           clientLogLevel: 'error',
           compress: true,
@@ -46,7 +45,9 @@ describe('Index', () => {
                 { loader: 'css-loader' },
                 {
                   loader: 'sass-loader',
-                  options: { data: `@import "${path.join(__dirname, 'app', 'variables.scss')}"` },
+                  options: {
+                    data: `@import "${path.join(__dirname, '../../..', 'app', 'variables.scss')}"`,
+                  },
                 },
               ],
             },
@@ -55,7 +56,7 @@ describe('Index', () => {
         output: {
           filename: './bundle.js',
           library: '',
-          path: join('build'),
+          path: path.join(__dirname, '../../..', 'build'),
           publicPath: '/',
         },
         plugins: [

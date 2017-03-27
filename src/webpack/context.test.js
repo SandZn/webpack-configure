@@ -5,8 +5,9 @@ const context = require('./context');
 
 describe('Webpack -> Context', () => {
   it('Builds the context by creating a relative path', () => {
-    const PATH = 'PATH';
-    const configuration = { paths: { app: PATH } };
-    expect(context(configuration)).to.deep.equal(path.join(__dirname, '..', PATH));
+    const APP = 'APP';
+    const ROOT = '../ROOT';
+    const configuration = { paths: { app: APP, root: ROOT } };
+    expect(context(configuration)).to.deep.equal(path.join(__dirname, ROOT, APP));
   });
 });

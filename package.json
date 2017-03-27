@@ -6,7 +6,7 @@
   "scripts": {
     "coveralls": "cat ./coverage/lcov.info | node node_modules/.bin/coveralls",
     "lint": "eslint --ext .js src",
-    "test": "npm run lint && npm run test:scripts",
+    "test": "npm run lint && NODE_ENV=test npm run test:scripts",
     "test:scripts": "istanbul cover _mocha \"src/**/*.test.js\"",
     "semantic-release": "semantic-release pre && npm publish && semantic-release post"
   },

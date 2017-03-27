@@ -1,6 +1,6 @@
 const { expect } = require('chai');
+const path = require('path');
 
-const { join } = require('../../../../utils/paths');
 const { CONSTANTS } = require('../../../../config/config');
 const sass = require('./sass');
 
@@ -12,11 +12,12 @@ describe('Webpack -> Module -> Rule -> Loader -> Sass', () => {
   });
   it('Adds the variables file loader when required', () => {
     const APP = 'APP';
+    const ROOT = '../ROOT';
     const SASS = 'SASS';
-    const configuration = { entry: { sass: SASS }, paths: { app: APP } };
+    const configuration = { entry: { sass: SASS }, paths: { app: APP, root: ROOT } };
     const expected = {
       loader: CONSTANTS.LOADER_SASS,
-      options: { data: `@import "${join(APP, SASS)}"` },
+      options: { data: `@import "${path.join(__dirname, '../../..', ROOT, APP, SASS)}"` },
     };
     expect(sass(configuration)).to.deep.equal(expected);
   });

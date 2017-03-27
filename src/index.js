@@ -22,6 +22,6 @@ const buildWebpackConfigObject = configuration => ({
 
 const webpackConfigure = compose(applyDefaultConfig, buildWebpackConfigObject);
 
-console.log(JSON.stringify(webpackConfigure(), null, 2));
+// console.log(JSON.stringify(webpackConfigure(), null, 2));
 
 module.exports = webpackConfigure;

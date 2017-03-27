@@ -10,8 +10,10 @@ describe('Utils -> Paths', () => {
     });
   });
   describe('join()', () => {
-    it('Returns a path relative to the application root.', () => {
-      expect(join('app')).to.equal(path.join(__dirname, '..', 'app'));
+    const ROOT = 'ROOT';
+    const configuration = { paths: { root: ROOT } };
+    it('Returns a function that returns path relative to the application root.', () => {
+      expect(join(configuration)('app')).to.equal(path.join(__dirname, ROOT, 'app'));
     });
   });
 });
