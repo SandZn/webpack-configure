@@ -39,6 +39,36 @@ describe('Index', () => {
             },
             {
               exclude: /node_modules/,
+              include: /node_modules\/flexboxgrid/,
+              test: /.s?css/,
+              use: [
+                { loader: 'style-loader' },
+                { loader: 'css-loader' },
+                {
+                  loader: 'sass-loader',
+                  options: {
+                    data: `@import "${path.join(__dirname, '../../..', 'app', 'variables.scss')}"`,
+                  },
+                },
+              ],
+            },
+            {
+              exclude: /node_modules/,
+              include: /node_modules\/react-toolbox/,
+              test: /.s?css/,
+              use: [
+                { loader: 'style-loader' },
+                { loader: 'css-loader' },
+                {
+                  loader: 'sass-loader',
+                  options: {
+                    data: `@import "${path.join(__dirname, '../../..', 'app', 'variables.scss')}"`,
+                  },
+                },
+              ],
+            },
+            {
+              exclude: /node_modules/,
               test: /.s?css/,
               use: [
                 { loader: 'style-loader' },

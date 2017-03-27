@@ -1,10 +1,12 @@
 const { arrayFromFunctions } = require('../../utils/arrays');
-const css = require('../module/rule/css');
-const javascript = require('../module/rule/javascript');
-const jsx = require('../module/rule/jsx');
+const css = require('./rule/css');
+const javascript = require('./rule/javascript');
+const jsx = require('./rule/jsx');
+const reactFlexboxGrid = require('./rule/react-flexbox-grid');
+const reactToolbox = require('./rule/react-toolbox');
 const sass = require('../module/rule/sass');
 
-const rules = arrayFromFunctions(css, javascript, jsx, sass);
+const rules = arrayFromFunctions(css, javascript, jsx, reactFlexboxGrid, reactToolbox, sass);
 const webpackModule = configuration => ({
   rules: rules(configuration),
 });

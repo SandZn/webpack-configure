@@ -22,6 +22,8 @@ const buildWebpackConfigObject = configuration => ({
 
 const webpackConfigure = compose(applyDefaultConfig, buildWebpackConfigObject);
 
+// eslint-disable-next-line
+// RegExp.prototype.toJSON = RegExp.prototype.toString;
 // console.log(JSON.stringify(webpackConfigure(), null, 2));
 
 module.exports = webpackConfigure;
