@@ -5,7 +5,7 @@ const CONFIG = {
   html: { isEnabled: true, template: 'index.html' },
   languages: { css: true, javascript: true, jsx: true, sass: true },
   output: { app: 'bundle.js', vendor: 'vendor.js' },
-  packages: { npm: true },
+  packages: { npm: true, reactFlexboxGrid: true, reactToolbox: true },
   paths: { app: 'app', build: 'build', root: '../../../..' },
 };
 
@@ -13,7 +13,7 @@ const CONSTANTS = {
   EXTENSION_CSS: '.css',
   EXTENSION_JAVASCRIPT: '.js',
   EXTENSION_JSX: '.jsx',
-  EXTENSION_SASS: '.scss',
+  EXTENSION_SASS: '.s?css',
   LOADER_BABEL: 'babel-loader',
   LOADER_CSS: 'css-loader',
   LOADER_HOT: 'react-hot-loader/webpack',
@@ -21,6 +21,7 @@ const CONSTANTS = {
   LOADER_STYLE: 'style-loader',
   PATH_NPM: 'node_modules',
   PATH_PUBLIC: '/',
+  PATH_REACT_FLEXBOX_GRID: 'node_modules/flexboxgrid',
   VENDOR_LIBRARY: 'vendor',
 };
 
@@ -43,6 +44,8 @@ const isJavascriptEnabled = configuration => !!configuration.languages.javascrip
 const isJsxEnabled = configuration => !!configuration.languages.jsx;
 const isNamedModulesEnabled = configuration => !!configuration.build.namedModules;
 const isNpmEnabled = configuration => !!configuration.packages.npm;
+const isReactFlexboxGridEnabled = configuration => !!configuration.packages.reactFlexboxGrid;
+const isReactToolboxEnabled = configuration => !!configuration.packages.reactToolbox;
 const isSassEnabled = configuration => !!configuration.languages.sass;
 const isSassEntryEnabled = configuration => !!configuration.entry.sass;
 const isVendorBuild = configuration => !!configuration.build.vendor;
@@ -69,6 +72,8 @@ module.exports = {
   isDevServerEnabled,
   isDevServerHot,
   isHtmlEnabled,
+  isReactFlexboxGridEnabled,
+  isReactToolboxEnabled,
   isSassEnabled,
   isSassEntryEnabled,
   isVendorBuild,

@@ -39,7 +39,7 @@ describe('Index', () => {
             },
             {
               exclude: /node_modules/,
-              test: /.scss/,
+              test: /.s?css/,
               use: [
                 { loader: 'style-loader' },
                 { loader: 'css-loader' },
